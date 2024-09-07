@@ -23,7 +23,7 @@ public class Department {
     private String name;
 
     @Column(name = "type", nullable = false)
-    @Enumerated(value = EnumType.ORDINAL)
+    @Enumerated(value = EnumType.STRING)
     private Type type;
 
     @Column(name =  "create_at", nullable = false, updatable = false)
