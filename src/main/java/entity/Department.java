@@ -1,5 +1,6 @@
 package entity;
 
+import converter.DepartmentTypeConverter;
 import jakarta.persistence.*;
 import lombok.Generated;
 import lombok.Getter;
@@ -23,7 +24,7 @@ public class Department {
     private String name;
 
     @Column(name = "type", nullable = false)
-    @Enumerated(value = EnumType.STRING)
+    @Convert(converter = DepartmentTypeConverter.class)
     private Type type;
 
     @Column(name =  "create_at", nullable = false, updatable = false)
