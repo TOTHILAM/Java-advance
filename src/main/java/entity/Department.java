@@ -37,12 +37,12 @@ public class Department {
 
     @PrePersist
     public void prePersist() {
-        System.out.println("Trước khi thêm vào database");
+        System.out.println("Trước thêm vào database");
     }
 
     @PostPersist
     public void postPersist() {
-        System.out.println("Sau khi thêm vào database");
+        System.out.println("Sau thêm vào database");
     }
 
     public enum Type {
