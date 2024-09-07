@@ -7,11 +7,13 @@ public class Program {
             factory.inTransaction(session -> {
                 var department = new Department();
                 department.setName("Giám đốc");
+                department.setType(Department.Type.PROJECT_MANAGER);
                 session.persist(department);
             });
             factory.inTransaction(session -> {
                 var department = new Department();
                 department.setName("Bảo vệ");
+                department.setType(Department.Type.TESTER);
                 session.persist(department);
             });
 
@@ -21,31 +23,6 @@ public class Program {
                 for (Department department : departments) {
                     System.out.println("◉　department = " + department);
                 }
-            });
-
-            factory.inSession(session -> {
-                var department = session.get(Department.class, 1);
-                System.out.println("✨ department = " + department);
-            });
-
-            factory.inSession(session -> {
-                var hql = "FROM Department WHERE name = :name";
-                var department = session
-                        .createSelectionQuery(hql, Department.class)
-                        .setParameter("name", "Bảo vệ")
-                        .uniqueResult();
-                System.out.println("🍎 department = " + department);
-            });
-
-            factory.inTransaction(session -> {
-                var department = session.get(Department.class, 2);
-                department.setName("Kinh doanh");
-                session.merge(department);
-            });
-
-            factory.inTransaction(session -> {
-                var department = session.get(Department.class, 1);
-                session.remove(department);
             });
         }
     }

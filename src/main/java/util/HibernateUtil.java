@@ -7,7 +7,7 @@ import org.hibernate.cfg.Configuration;
 
 public class HibernateUtil {
     public static SessionFactory buidSessionFactory() {
-        var url = "jdbc:mysql://localhost:3306/lesson_01?createDatabaseIfNotExist=true";
+        var url = "jdbc:mysql://localhost:3306/lesson_02?createDatabaseIfNotExist=true";
         var configuration = new Configuration()
                 .addAnnotatedClass(Department.class)
                 .setProperty(AvailableSettings.URL, url)
