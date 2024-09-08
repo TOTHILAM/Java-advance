@@ -19,6 +19,7 @@ public class HibernateUtil {
                 .setProperty(AvailableSettings.URL, url)
                 .setProperty(AvailableSettings.USER, "root")
                 .setProperty(AvailableSettings.GLOBALLY_QUOTED_IDENTIFIERS, "true")
+                .setProperty(AvailableSettings.ENABLE_LAZY_LOAD_NO_TRANS, "true")
                 .setProperty(AvailableSettings.PASS, "Ritto2024")
                 .setProperty(AvailableSettings.HBM2DDL_AUTO, "create")
                 .setProperty(AvailableSettings.SHOW_SQL, "true")
