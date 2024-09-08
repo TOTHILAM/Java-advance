@@ -18,7 +18,18 @@ import java.time.LocalDateTime;
 public class Department {
     @Id
     @Column(name = "id")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @SequenceGenerator(
+            name = "department_id_generator",
+            sequenceName = "department_id_sequence",
+//           initalValue giá trị khởi tạo cho id
+            initialValue = 5,
+//            allocationSize giá trị tăng thêm cho biến next id
+            allocationSize = 1
+    )
+    @GeneratedValue(
+            strategy = GenerationType.SEQUENCE,
+            generator = "department_id_generator"
+    )
     private int id;
     @Column(name = "name", length = 50, unique = true, nullable = false)
     private String name;
