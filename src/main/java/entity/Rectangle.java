@@ -1,19 +1,17 @@
 package entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.DiscriminatorValue;
-import jakarta.persistence.Entity;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter
 @Setter
 @Entity
-@DiscriminatorValue("rectangle")
+@Table(name = "rectangle")
 public class Rectangle extends Shape {
-    @Column(name = "width")
+    @Column(name = "width", nullable = false)
     private int width;
 
-    @Column(name = "height")
+    @Column(name = "height", nullable = false)
     private int height;
 }
