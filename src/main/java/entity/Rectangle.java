@@ -8,6 +8,7 @@ import lombok.Setter;
 @Setter
 @Entity
 @Table(name = "rectangle")
+@PrimaryKeyJoinColumn(name = "id")
 public class Rectangle extends Shape {
     @Column(name = "width", nullable = false)
     private int width;
